@@ -1,5 +1,6 @@
 D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\appsettings.Development.json
 D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\appsettings.json
+D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Blog.staticwebassets.runtime.json
 D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Blog.exe
 D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Blog.deps.json
 D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Blog.runtimeconfig.json
@@ -8,6 +9,7 @@ D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Blog.pdb
 D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Azure.Core.dll
 D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Azure.Identity.dll
 D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Humanizer.dll
+D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
@@ -36,6 +38,7 @@ D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.d
 D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
 D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Mono.TextTemplating.dll
+D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\SecureIdentity.dll
 D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\System.CodeDom.dll
 D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
 D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\System.Drawing.Common.dll
@@ -80,5 +83,3 @@ D:\Code\Balta.IO\Asp.Net6\Blog\obj\Debug\net6.0\refint\Blog.dll
 D:\Code\Balta.IO\Asp.Net6\Blog\obj\Debug\net6.0\Blog.pdb
 D:\Code\Balta.IO\Asp.Net6\Blog\obj\Debug\net6.0\Blog.genruntimeconfig.cache
 D:\Code\Balta.IO\Asp.Net6\Blog\obj\Debug\net6.0\ref\Blog.dll
-D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\SecureIdentity.dll

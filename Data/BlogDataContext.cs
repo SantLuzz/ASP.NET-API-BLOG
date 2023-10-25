@@ -12,7 +12,7 @@ namespace Blog.Data
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlServer(@"Data Source=.\INSTANCIA;Database=Blog;User ID=sa;Password=1234; TrustServerCertificate=True");
+            => options.UseSqlServer(@"Data Source=.\SANTLUZZ12;Database=Blog;User ID=sa;Password=1436329501Feeh; TrustServerCertificate=True");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,4 +1,6 @@
 ﻿using Blog.Attributes;
+using Blog.Models;
+using Blog.Services;
 using Microsoft.AspNetCore.Mvc;
 
 //Health Check - Checar saude da API
@@ -17,7 +19,9 @@ namespace Blog.Controllers
         /// <returns></returns>
         [HttpGet("")]
         //[ApiKey] //Autenticação por API KEY, para acesso direto na api
-        public IActionResult Get() 
+        public IActionResult Get(
+            [FromServices]EmailService email
+        ) 
         {
             return Ok();
         }
