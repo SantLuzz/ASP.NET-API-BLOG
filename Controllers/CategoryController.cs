@@ -5,6 +5,7 @@ using Blog.ViewModels;
 using Blog.ViewModels.Categories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace Blog.Controllers
 {
@@ -13,17 +14,30 @@ namespace Blog.Controllers
     {
         [HttpGet("v1/categories")] //nomeando um endpoit usando o modelo RestFull
         public async Task<IActionResult> GetAsync(
+            [FromServices]IMemoryCache cache, //recebendo o cache do services
             [FromServices]BlogDataContext context)
         {
             try
             {
-                var categories = await context.Categories.ToListAsync();
+                //definindo para obter ou criar o cache das categorias
+                var categories = cache.GetOrCreate("CategoriesCache", entry =>
+                {
+                    entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(1); //tempo de duração
+                    return GetCategories(context); //recebendo as categorias do banco
+                });
+
+                //var categories = await context.Categories.ToListAsync();
                 return Ok(new ResultViewModel<List<Category>>(categories));
             }
             catch
             {
                 return StatusCode(500, new ResultViewModel<List<Category>>("05X04 - Falha interna no servidor!"));
             }
+        }
+
+        private List<Category> GetCategories(BlogDataContext context)
+        {
+            return context.Categories.ToList();
         }
 
         [HttpGet("v1/categories/{id:int}")] //nomeando um endpoit usando o modelo RestFull

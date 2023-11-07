@@ -1,9 +1,12 @@
+using System.IO.Compression;
 using Blog;
 using Blog.Data;
 using Blog.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.ResponseCompression;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigureAuthentication(builder);
@@ -29,6 +32,7 @@ void LoadConfiguration(WebApplication app)
     //definindo que usa autorização e autenticação
     app.UseAuthentication(); //quem é o usuário
     app.UseAuthorization(); //o que ele pode fazer
+    app.UseResponseCompression(); //definindo que a resposta deve ser zipada
     app.UseStaticFiles(); //falando que o servidor pode renderizar html, css, imagens
     app.MapControllers();
     app.Run();
@@ -59,13 +63,31 @@ void ConfigureAuthentication(WebApplicationBuilder builder)
 
 void ConfigureMvc(WebApplicationBuilder builder)
 {
-    builder.Services
-    .AddControllers()
-    //suprime a validação automática dos controllers
-    .ConfigureApiBehaviorOptions(options =>
+    builder.Services.AddMemoryCache(); //adiciona suporte para cache
+    builder.Services.AddResponseCompression(options =>
     {
-        options.SuppressModelStateInvalidFilter = true;
+        //options.Providers.Add<BrotliCompressionProvider>();
+        options.Providers.Add<GzipCompressionProvider>(); //define a forma de compressão
+        //options.Providers.Add<CustomCompressionProvider>();
     });
+    //configurando a compressão
+    builder.Services.Configure<GzipCompressionProviderOptions>(options =>
+    {
+        options.Level = CompressionLevel.Optimal;
+    });
+    builder.Services
+        .AddControllers()
+        //suprime a validação automática dos controllers
+        .ConfigureApiBehaviorOptions(options =>
+        {
+            options.SuppressModelStateInvalidFilter = true;
+        })
+        //mudando a forma padrão de serializar e desserializar para json
+        .AddJsonOptions(x =>
+        {
+            x.JsonSerializerOptions.ReferenceHandler =  ReferenceHandler.IgnoreCycles; //ignorando referencia circular
+            x.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault; //quando tiver objeto null não renderiza
+        });
 }
 
 void ConfigureServices(WebApplicationBuilder builder)
