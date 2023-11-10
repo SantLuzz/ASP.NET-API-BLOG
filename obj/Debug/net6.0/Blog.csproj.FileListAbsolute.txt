@@ -83,3 +83,8 @@ D:\Code\Balta.IO\Asp.Net6\Blog\obj\Debug\net6.0\refint\Blog.dll
 D:\Code\Balta.IO\Asp.Net6\Blog\obj\Debug\net6.0\Blog.pdb
 D:\Code\Balta.IO\Asp.Net6\Blog\obj\Debug\net6.0\Blog.genruntimeconfig.cache
 D:\Code\Balta.IO\Asp.Net6\Blog\obj\Debug\net6.0\ref\Blog.dll
+D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Code\Balta.IO\Asp.Net6\Blog\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Code\Balta.IO\Asp.Net6\Blog\obj\Debug\net6.0\Blog.MvcApplicationPartsAssemblyInfo.cs

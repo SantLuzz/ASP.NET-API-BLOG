@@ -7,11 +7,18 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigureAuthentication(builder);
 ConfigureMvc(builder);
 ConfigureServices(builder);
+
+
+//Carregando as dependencias do Swager
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 
 var app = builder.Build();
 LoadConfiguration(app);
@@ -29,12 +36,29 @@ void LoadConfiguration(WebApplication app)
     app.Configuration.GetSection("Smtp").Bind(smtp);
     Configuration.Smtp = smtp;
 
+    //definindo o encaminhamento automático para https
+    app.UseHttpsRedirection();
+
     //definindo que usa autorização e autenticação
     app.UseAuthentication(); //quem é o usuário
     app.UseAuthorization(); //o que ele pode fazer
-    app.UseResponseCompression(); //definindo que a resposta deve ser zipada
-    app.UseStaticFiles(); //falando que o servidor pode renderizar html, css, imagens
+
+    //mapeando os controles
     app.MapControllers();
+
+    //definindo que a resposta deve ser zipada
+    app.UseResponseCompression();
+
+    //falando que o servidor pode renderizar html, css, imagens
+    app.UseStaticFiles();
+
+
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
+
     app.Run();
 }
 
@@ -92,7 +116,13 @@ void ConfigureMvc(WebApplicationBuilder builder)
 
 void ConfigureServices(WebApplicationBuilder builder)
 {
-    builder.Services.AddDbContext<BlogDataContext>();
+    //pegando a minha connection string no app settings
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    
+    //configurando a conexão com o banco de dados e passando a string de conexão
+    builder.Services.AddDbContext<BlogDataContext>(options =>
+        options.UseSqlServer(connectionString));
+
     ////sempre criar um nova instancia
     //builder.Services.AddTransient();
     ////Dura por requisição (sempre ao iniciar um request)

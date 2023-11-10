@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "Hash": "sME0Uil61cYo2mvj1HXV0HFv/ggAXjHCzNvcVxzAmk8=",
+  "Source": "Blog",
+  "BasePath": "_content/Blog",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Blog\\wwwroot",
+      "Source": "Blog",
+      "ContentRoot": "D:\\Code\\Balta.IO\\Asp.Net6\\Blog\\wwwroot\\",
+      "BasePath": "_content/Blog",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Code\\Balta.IO\\Asp.Net6\\Blog\\wwwroot\\Images\\b57c345e-dc03-432f-9278-845040757d2f.jpg",
+      "SourceId": "Blog",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Code\\Balta.IO\\Asp.Net6\\Blog\\wwwroot\\",
+      "BasePath": "_content/Blog",
+      "RelativePath": "Images/b57c345e-dc03-432f-9278-845040757d2f.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\b57c345e-dc03-432f-9278-845040757d2f.jpg"
+    }
+  ]
+}

@@ -20,10 +20,12 @@ namespace Blog.Controllers
         [HttpGet("")]
         //[ApiKey] //Autenticação por API KEY, para acesso direto na api
         public IActionResult Get(
+            [FromServices]IConfiguration configuration,
             [FromServices]EmailService email
-        ) 
+        )
         {
-            return Ok();
+            var enviromente = configuration.GetValue<string>("Env");
+            return Ok(new {enviroment = enviromente});
         }
 
 
